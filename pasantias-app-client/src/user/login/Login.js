@@ -12,7 +12,7 @@ class Login extends Component {
         const AntWrappedLoginForm = Form.create()(LoginForm)
         return (
             <div className="login-container">
-                <h1 className="page-title">Login</h1>
+                <h1 className="page-title">Inisiar sesión</h1>
                 <div className="login-content">
                     <AntWrappedLoginForm onLogin={this.props.onLogin} />
                 </div>
@@ -81,13 +81,12 @@ class LoginForm extends Component {
                 )}
                 </FormItem>
                 <FormItem>
-                    <Button type="primary" htmlType="submit" size="large" className="login-form-button">Iniciar sesion</Button>
+                    <Button type="primary" htmlType="submit" size="large" className="login-form-button">Iniciar sesión</Button>
                     <center><Link to="/signup">Registrarse</Link></center>
                 </FormItem>
             </Form>
         );
     }
 }
-
 
 export default Login;

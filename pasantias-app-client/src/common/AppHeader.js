@@ -23,7 +23,9 @@ class AppHeader extends React.Component {
 
     render() {
         let menuItems;
+        let homeButton;
         if(this.props.currentUser) {
+          homeButton =[<Link to="/">Sistema de Pasantias</Link>];
           menuItems = [
             <Menu.Item key="/">
               <Link to="/">
@@ -42,6 +44,7 @@ class AppHeader extends React.Component {
             </Menu.Item>
           ]; 
         } else {
+          homeButton =[<Link to="/login">Sistema de Pasantias</Link>];
           menuItems = [
             <Menu.Item key="/login">
               <Link to="/login">Inisiar sesion</Link>
@@ -56,7 +59,7 @@ class AppHeader extends React.Component {
             <Header className="app-header">
             <div className="container">
               <div className="app-title" >
-                <Link to="/">Sistema de Pasantias</Link>
+                {homeButton}
               </div>
               <Menu
                 className="app-menu"
