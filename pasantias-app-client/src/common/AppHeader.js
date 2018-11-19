@@ -32,11 +32,6 @@ class AppHeader extends React.Component {
                 <Icon type="home" className="nav-icon" />
               </Link>
             </Menu.Item>,
-            <Menu.Item key="/poll/new">
-            <Link to="/poll/new">
-              <img src={statsIcon} alt="poll" className="poll-icon" />
-            </Link>
-          </Menu.Item>,
           <Menu.Item key="/profile" className="profile-menu">
                 <ProfileDropdownMenu 
                   currentUser={this.props.currentUser} 
