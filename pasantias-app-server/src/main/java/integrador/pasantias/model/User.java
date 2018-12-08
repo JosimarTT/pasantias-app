@@ -39,6 +39,10 @@ public class User extends DateAudit {
 	@JoinTable(name = "user_roles", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<Role> roles = new HashSet<>();
 
+	@OneToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "career_id")
+	private Career career;
+
 	public User() {
 
 	}
