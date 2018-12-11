@@ -28,27 +28,27 @@ class LoginForm extends Component {
     }
 
     handleSubmit(event) {
-        event.preventDefault();   
+        event.preventDefault();
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 const loginRequest = Object.assign({}, values);
                 login(loginRequest)
-                .then(response => {
-                    localStorage.setItem(ACCESS_TOKEN, response.accessToken);
-                    this.props.onLogin();
-                }).catch(error => {
-                    if(error.status === 401) {
-                        notification.error({
-                            message: 'Error de inicio de sesion',
-                            description: 'Usuario o contrasena incorrecto.'
-                        });                    
-                    } else {
-                        notification.error({
-                            message: 'Polling App',
-                            description: error.message || 'Sorry! Something went wrong. Please try again!'
-                        });                                            
-                    }
-                });
+                    .then(response => {
+                        localStorage.setItem(ACCESS_TOKEN, response.accessToken);
+                        this.props.onLogin();
+                    }).catch(error => {
+                        if (error.status === 401) {
+                            notification.error({
+                                message: 'Error de inicio de sesion',
+                                description: 'Usuario o contrasena incorrecto.'
+                            });
+                        } else {
+                            notification.error({
+                                message: 'Polling App',
+                                description: error.message || 'Sorry! Something went wrong. Please try again!'
+                            });
+                        }
+                    });
             }
         });
     }
@@ -61,24 +61,24 @@ class LoginForm extends Component {
                     {getFieldDecorator('usernameOrEmail', {
                         rules: [{ required: true, message: 'Ingrese su correo' }],
                     })(
-                    <Input 
-                        prefix={<Icon type="user" />}
-                        size="large"
-                        name="usernameOrEmail" 
-                        placeholder="Usuario o Correo" />    
+                        <Input
+                            prefix={<Icon type="user" />}
+                            size="large"
+                            name="usernameOrEmail"
+                            placeholder="Usuario o Correo" />
                     )}
                 </FormItem>
                 <FormItem>
-                {getFieldDecorator('password', {
-                    rules: [{ required: true, message: 'Ingrese su contrasena' }],
-                })(
-                    <Input 
-                        prefix={<Icon type="lock" />}
-                        size="large"
-                        name="password" 
-                        type="password" 
-                        placeholder="Contrasena"  />                        
-                )}
+                    {getFieldDecorator('password', {
+                        rules: [{ required: true, message: 'Ingrese su contrasena' }],
+                    })(
+                        <Input
+                            prefix={<Icon type="lock" />}
+                            size="large"
+                            name="password"
+                            type="password"
+                            placeholder="Contrasena" />
+                    )}
                 </FormItem>
                 <FormItem>
                     <Button type="primary" htmlType="submit" size="large" className="login-form-button">Iniciar sesión</Button>

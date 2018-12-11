@@ -101,4 +101,12 @@ public class User extends DateAudit {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+
+	public Career getCareer() {
+		return career;
+	}
+
+	public void setCareer(Career career) {
+		this.career = career;
+	}
 }
