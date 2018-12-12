@@ -6,7 +6,7 @@ import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "careers", uniqueConstraints = { @UniqueConstraint(columnNames = { "code" }),
-		@UniqueConstraint(columnNames = { "name" }), })
+		@UniqueConstraint(columnNames = { "career" }), })
 
 public class Career {
 	@Id
@@ -19,6 +19,6 @@ public class Career {
 
 	@NotBlank
 	@Size(max = 100)
-	private String name;
+	private String career;
 
 }
